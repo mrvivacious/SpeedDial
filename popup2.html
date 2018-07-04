@@ -1,0 +1,240 @@
+<!-- SpeedDial -->
+<!-- Popup menu -->
+<!-- @author Vivek Bhookya -->
+
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+
+<head>
+  <title>SpeedDial's Popup</title>
+<!-- /////////// CSS ////////// -->
+  <style type="text/css">
+    body {
+      display: block;
+      margin: 10px;
+      background: ivory;
+      /* white-space: nowrap; */
+    }
+
+    h1 {
+      font-size: 20px;
+    }
+
+    p {
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    	font-size: 14px;
+    	font-style: normal;
+    	font-variant: normal;
+        margin: 0px;
+        padding: 5px;
+    }
+
+    #container {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+    }
+
+    /* https://www.w3schools.com/howto/howto_css_vertical_menu.asp */
+    .vertical-menu {
+    width: 100%; /* Set a width if you like */
+    }
+
+    .vertical-menu a {
+        display: block; /* Make the links appear below each other */
+        padding: 12px; /* Add some padding */
+    }
+
+  /*//////////////////////////////////////////////////////////////////////////////////////////
+  /* Include the padding and border in an element's total width and height */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Remove margins and padding from the list */
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Style the list items */
+  ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 40px 12px 12px;
+    list-style-type: none;
+    background: inherit;
+    font-size: 17px;
+    transition: 0.2s;
+    word-break: break-all;
+    color: #FF82AB;
+
+    /* make the list items unselectable/unhighlightable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Darker background-color on hover */
+  ul li:hover {
+    background: #FF82AB;
+    color: blanchedAlmond;
+    title: "Visit here?";
+  }
+
+  /* Style the "Add" button */
+  .addBtn {
+    /* padding: 10px; */
+    /* float: left; */
+    background-color:blanchedAlmond;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.7s;
+  }
+
+  .addBtn:hover {
+    background-color: #FF82AB;
+    color: blanchedAlmond;
+  }
+
+  /* Style the "EMERGENCY" button */
+  .emergency {
+    /* padding: 10px; */
+    /* float: left; */
+    background-color: palegreen;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .emergency:hover {
+    background-color: red;
+    color: white;
+  }
+
+  /* Style the close button */
+  .delete {
+    position: absolute;
+    float: right;
+    color: #f44336;
+
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+  }
+
+  .delete:hover {
+    /* background-color: #f44336; */
+    color: white;
+  }
+
+  a:link {
+    color: palegreen;
+    background-color: transparent;
+    text-decoration: none;
+    outline: none;
+  }
+
+    a:visited {
+      color: palegreen;
+      background-color: transparent;
+      text-decoration: none;
+      outline: none;
+    }
+
+    a:hover {
+      color: mediumspringgreen;
+      background-color: transparent;
+      outline: none;
+      /*text-decoration: underline;*/
+    }
+
+      /* Style the input */
+      /* input {
+        border: none;
+        width: 95%;
+        padding: 10px;
+        margin: 10px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        float: left;
+        font-size: 16px;
+        outline-width: 1px;
+        outline-color: black;
+      } */
+
+    #setIncognito {
+      color: red;
+      text-decoration: underline;
+    }
+
+    #setIncognito:hover {
+      color: maroon;
+      cursor: pointer;
+    }
+
+    #INPUT_url {
+      background: inherit;
+    }
+
+    #INPUT_name {
+      background: inherit;
+    }
+
+  </style>
+<!-- /////////// CSS ////////// -->
+
+  <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+ <script src="jquery.min.js"></script>
+ <script src="linkManager.js"></script>
+
+</head>
+
+<body>
+  <h1><em>SpeedDial</em></h1>
+
+  <div id="container">
+    <div id="vertical-menu" class="vertical-menu">
+      <p>NUMBERS GO HERE:
+      </p>
+      <p id="TEST4">test values</p>
+
+      <ul id="websites">
+        <!-- Websites added will be found here when inspecting the popup -->
+      </ul>
+
+
+      <br>
+
+      <p style="margin-top:0px; margin-bottom:0px; border-width:0px;">
+        <a href="mailto:jvnnvt@gmail.com?Subject=SpeedDial" target="_blank"><em>Something wrong? Let me know!<em></a>
+      </p>
+
+
+
+      <!-- TODO: Add closing message here "thanks for using pls rate etc" + add charityware -->
+      <p style="color:mediumspringgreen;"><em>Thank you for your support <span style="color:palegreen; font-size:14px;">&hearts;</span></em>
+      </p>
+    </div>
+    <!-- End of vertical-menu -->
+
+  </div>
+  <!-- Close container -->
+</body>
+
+</html>
