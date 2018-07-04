@@ -19,7 +19,7 @@
   "background": {
       "scripts": ["jquery.min.js", "linkManager.js"],
       "persistent": false
-      },
+  },
 
   "content_scripts": [
     {
