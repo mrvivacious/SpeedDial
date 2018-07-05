@@ -63,81 +63,6 @@
     padding: 0;
   }
 
-  /* Style the list items */
-  ul li {
-    cursor: pointer;
-    position: relative;
-    padding: 12px 40px 12px 12px;
-    list-style-type: none;
-    background: inherit;
-    font-size: 17px;
-    transition: 0.2s;
-    word-break: break-all;
-    color: #FF82AB;
-
-    /* make the list items unselectable/unhighlightable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  /* Darker background-color on hover */
-  ul li:hover {
-    background: #FF82AB;
-    color: blanchedAlmond;
-    title: "Visit here?";
-  }
-
-  /* Style the "Add" button */
-  .addBtn {
-    /* padding: 10px; */
-    /* float: left; */
-    background-color:blanchedAlmond;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.7s;
-  }
-
-  .addBtn:hover {
-    background-color: #FF82AB;
-    color: blanchedAlmond;
-  }
-
-  /* Style the "EMERGENCY" button */
-  .emergency {
-    /* padding: 10px; */
-    /* float: left; */
-    background-color: palegreen;
-    color: red;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.4s;
-  }
-
-  .emergency:hover {
-    background-color: red;
-    color: white;
-  }
-
-  /* Style the close button */
-  .delete {
-    position: absolute;
-    float: right;
-    color: #f44336;
-
-    right: 0;
-    top: 0;
-    padding: 12px 16px 12px 16px;
-  }
-
-  .delete:hover {
-    /* background-color: #f44336; */
-    color: white;
-  }
-
   a:link {
     color: green;
     background-color: transparent;
@@ -159,38 +84,31 @@
       /*text-decoration: underline;*/
     }
 
-      /* Style the input */
-      /* input {
-        border: none;
-        width: 95%;
-        padding: 10px;
-        margin: 10px;
-        margin-top: 0px;
-        margin-bottom: 10px;
-        float: left;
-        font-size: 16px;
-        outline-width: 1px;
-        outline-color: black;
-      } */
-
-    #setIncognito {
-      color: red;
-      text-decoration: underline;
-    }
-
-    #setIncognito:hover {
-      color: maroon;
+    /* Style the list items */
+    #number {
       cursor: pointer;
-    }
-
-    #INPUT_url {
+      position: relative;
+      padding: 12px 40px 12px 12px;
+      list-style-type: none;
       background: inherit;
+      font-size: 17px;
+      transition: 0.2s;
+      word-break: break-all;
+      color: #FF82AB;
+
+      /* make the list items unselectable/unhighlightable */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
-    #INPUT_name {
-      background: inherit;
+    /* Darker background-color on hover */
+    #number:hover {
+      background: #FF82AB;
+      color: blanchedAlmond;
+      title: "Visit here?";
     }
-
   </style>
 <!-- /////////// CSS ////////// -->
 
@@ -210,25 +128,19 @@
 
   <div id="container">
     <div id="vertical-menu" class="vertical-menu">
-      <p>NUMBERS GO HERE:
-      </p>
-      <p id="TEST4">test values</p>
-
       <ul id="numbers">
         <!-- Websites added will be found here when inspecting the popup -->
       </ul>
 
 
-      <br>
+      <br><br>
+      <a href="popup1.html" id="change" style="font-size:14px; margin-top:0px; margin-bottom:0px; border-width:0px;">
+        <em>Your state:</em> <span id="stateAbr">test values</span>. Change state?</a>
 
-      <a href="popup1.html" id="change" style="font-size:14px; margin-bottom:0px;">Change state</a>
       <p style="margin-top:0px; margin-bottom:0px; border-width:0px;">
         <a href="mailto:jvnnvt@gmail.com?Subject=SpeedDial" target="_blank"><em>Something wrong? Let me know!<em></a>
       </p>
 
-
-
-      <!-- TODO: Add closing message here "thanks for using pls rate etc" + add charityware -->
       <p style="color:mediumspringgreen;"><em>Thank you for your support <span style="color:palegreen; font-size:14px;">&hearts;</span></em>
       </p>
     </div>

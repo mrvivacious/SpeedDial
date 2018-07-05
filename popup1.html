@@ -27,7 +27,7 @@
 
     p {
         font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    	font-size: 14px;
+    	font-size: 16px;
     	font-style: normal;
     	font-variant: normal;
         margin: 0px;
@@ -57,98 +57,27 @@
     box-sizing: border-box;
   }
 
-  /* Remove margins and padding from the list */
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Style the list items */
-  ul li {
-    cursor: pointer;
-    position: relative;
-    padding: 12px 40px 12px 12px;
-    list-style-type: none;
-    background: inherit;
-    font-size: 17px;
-    transition: 0.2s;
-    word-break: break-all;
-    color: #FF82AB;
-
-    /* make the list items unselectable/unhighlightable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  /* Darker background-color on hover */
-  ul li:hover {
-    background: #FF82AB;
-    color: blanchedAlmond;
-    title: "Visit here?";
-  }
-
-  a:link {
+  /* Style the input */
+  input {
+    /* border: none; */
+    padding: 10px;
+    margin: 10px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    outline-width: 1px;
+    outline-color: black;
     color: green;
-    background-color: transparent;
-    text-decoration: none;
-    outline: none;
   }
 
-    a:visited {
-      color: green;
-      background-color: transparent;
-      text-decoration: none;
-      outline: none;
-    }
+  input:hover {
+    cursor: pointer;
+  }
 
-    a:hover {
-      color: mediumspringgreen;
-      background-color: transparent;
-      outline: none;
-      /*text-decoration: underline;*/
-    }
-
-      /* Style the input */
-      input {
-        /* border: none; */
-        padding: 10px;
-        margin: 10px;
-        margin-top: 0px;
-        margin-bottom: 10px;
-        font-size: 18px;
-        outline-width: 1px;
-        outline-color: black;
-        color: green;
-      }
-
-      input:hover {
-        cursor: pointer;
-      }
-
-      select {
-        font-size: 12px;
-        color: green;
-      }
-
-    #setIncognito {
-      color: red;
-      text-decoration: underline;
-    }
-
-    #setIncognito:hover {
-      color: maroon;
-      cursor: pointer;
-    }
-
-    #INPUT_url {
-      background: inherit;
-    }
-
-    #INPUT_name {
-      background: inherit;
-    }
+  select {
+    font-size: 16px;
+    color: green;
+  }
 
   </style>
 <!-- /////////// CSS ////////// -->
@@ -232,16 +161,15 @@
 
 
       <!-- <br><br> -->
-      <input id="submit" type="submit">
+      <input id="submit" type="submit" style="width: 80px;">
       </form>
 
-      <p style="margin-top:0px; margin-bottom:0px; border-width:0px;">
+      <!-- <p style="margin-top:0px; margin-bottom:0px; border-width:0px;">
         <a href="mailto:jvnnvt@gmail.com?Subject=SpeedDial" target="_blank"><em>Something wrong? Let me know!<em></a>
       </p>
 
-      <!-- TODO: Add closing message here "thanks for using pls rate etc" + add charityware -->
       <p style="color:mediumspringgreen;"><em>Thank you for your support <span style="color:palegreen; font-size:14px;">&hearts;</span></em>
-      </p>
+      </p> -->
     </div>
     <!-- End of vertical-menu -->
 
