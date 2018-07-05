@@ -3,8 +3,6 @@
 // @author Vivek Bhookya
 
 // TODO::
-
-// o Add a way for users to change the state they are in
 // o create arrays of organizations with their phone numbers per state ugh
 
 // Extra credit
@@ -15,11 +13,13 @@
 // √ When opening SpeedDial, we check first if a state is saved
 // + If a state is saved, we populate the list and display popup2.html with the numbers
 // + If no state is saved, we display popup1.html so users can specify a list
+// √ Add a way for users to change the state they are in
+
 
  var YWCA = {
    'AL': [' 2053224878'],
    'IL': ['2173440721', '8882932080'],
-   'VA': ['8046126126'],
+   'VA': ['8046126126', '8046126126', '8046126126', '8046126126'],
 };
 
 $(document).ready(function () {
@@ -45,8 +45,9 @@ function init() {
 
 }
 
-function populate_list(){
-
+function populate_list(state) {
+    addNumbers('YWCA', YWCA[state]);
+    // addNumbers(blah['whatever'])
 }
 
 // Function save()
@@ -63,10 +64,21 @@ function remove() {
 
 // Function addLink()
 // Create a new list item when clicking on the "Add" button
-function addLink() {
+function addNumbers(org, numbers) {
   // "Declare" a li object
   let li = document.createElement("li");
+  let t = document.createTextNode(org);
+  li.appendChild(t);
+  li.color='black';
+  document.getElementById("numbers").appendChild(li);
 
-  // let t = phoneNumber;
-  // li.appendChild(t);
+
+  for (let i = 0; numbers[i] !== undefined; i++) {
+    let li = document.createElement("li");
+    let t = document.createTextNode(numbers[i]);
+    li.appendChild(t);
+    document.getElementById("numbers").appendChild(li);
+
+  }
+
 }
