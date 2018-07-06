@@ -367,6 +367,6 @@ function addNumbers(elem, name, state) {
   }
 }
 
-function callNumber(numbers) {
-  alert(numbers);
+function callNumber(number) {
+  alert(number);
 }
