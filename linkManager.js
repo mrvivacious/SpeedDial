@@ -248,12 +248,17 @@ $(document).ready(function () {
   $("#submit").click(save);
   // Clear the state to enable the user to add a new state
   $("#change").click(remove);
-  // $("#org").click(addNumbers);
+  // $("#number").click(callNumber);
 });
 
 $(document).on('click', 'p', function () {
   // $(this).attr('title', 'Click to visit ' + this.id);
   addNumbers(this, this.innerHTML, document.getElementById('stateAbr').innerHTML);
+});
+
+$(document).on('click', 'li', function (event) {
+  callNumber(this.innerHTML);
+  event.stopPropagation;
 });
 
 
@@ -359,4 +364,8 @@ function addNumbers(elem, name, state) {
       elem.appendChild(li);
     }
   }
+}
+
+function callNumber(numbers) {
+  alert(number);
 }
