@@ -324,6 +324,13 @@ function addOrgs(org, numbers) {
 function addNumbers(elem, name) {
   let state = document.getElementById('stateAbr').innerHTML;
 
+  let org = document.getElementById('name');
+  if(org.childElementCount > 0){
+    while(org.hasChildNodes()){
+      org.removeChild(org.firstChild);
+    }
+  }
+
   if (name === 'YWCA') {
     let numbers = YWCA[state];
     // Now, create the objects for the numbers
