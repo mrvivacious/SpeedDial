@@ -322,11 +322,17 @@ function addOrgs(org, numbers) {
 }
 
 function addNumbers(elem, name, state) {
-  if (elem.childElementCount > 0) {
-    while (org.hasChildNodes()) {
-      org.removeChild(org.firstChild);
+  // "Fresh open" will clear all existing numbers from DOM
+  if (elem.childElementCount === 0) {
+    while(document.getElementById('number')) {
+      document.getElementById('number').remove();
     }
-    return;
+  }
+  // Closing an already open list will clear its numbers
+  else if (elem.childElementCount > 0) {
+    while(document.getElementById('number')) {
+      document.getElementById('number').remove();
+    }
   }
 
   if (name === 'YWCA') {
