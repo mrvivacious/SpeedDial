@@ -253,7 +253,7 @@ $(document).ready(function () {
 
 $(document).on('click', 'p', function () {
   // $(this).attr('title', 'Click to visit ' + this.id);
-  addNumbers(this, this.innerHTML);
+  addNumbers(this, this.innerHTML, document.getElementById('stateAbr').innerHTML);
 });
 
 
@@ -321,16 +321,13 @@ function addOrgs(org, numbers) {
   document.getElementById("numbers").appendChild(p);
 }
 
-function addNumbers(elem, name) {
-  let state = document.getElementById('stateAbr').innerHTML;
-
-  let org = document.getElementById('name');
-  if(org.childElementCount > 0){
-    while(org.hasChildNodes()){
+function addNumbers(elem, name, state) {
+  if (elem.childElementCount > 0) {
+    while (org.hasChildNodes()) {
       org.removeChild(org.firstChild);
     }
+    return;
   }
-  //
 
   if (name === 'YWCA') {
     let numbers = YWCA[state];
