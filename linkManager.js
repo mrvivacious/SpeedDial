@@ -260,7 +260,7 @@ $(document).on('click', 'li', function (event) {
   callNumber(this.innerHTML);
   event.stopPropagation();
 });
-
+//
 
 
 // Function init()
