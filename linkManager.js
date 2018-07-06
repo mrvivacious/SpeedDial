@@ -258,7 +258,7 @@ $(document).on('click', 'p', function () {
 
 $(document).on('click', 'li', function (event) {
   callNumber(this.innerHTML);
-  event.stopPropagation;
+  event.stopPropagation();
 });
 //
 
@@ -368,5 +368,5 @@ function addNumbers(elem, name, state) {
 }
 
 function callNumber(numbers) {
-  alert(number);
+  alert(numbers);
 }
