@@ -67,27 +67,27 @@ var alcoholAnon = {
 
  'MD': [4102724150, 4105432266, 3017331109, 3015876191, 3016620544],
 
- 'MA': [6174269444, 4135322111, 4134482382, 5086277084, 5087529000, ],
+ 'MA': [6174269444, 4135322111, 4134482382, 5086277084, 5087529000],
 
  'MI': [3138315550, 2483323521, 2485416565, 2696845304, 5173771444, 6169139149, 2699647577, 6163923360, 5172653590, 7344820707, 2314144070, 6168477959],
 
- 'MN': [9529220880, 9528811856, 6512275502, 8664232969, 5072895636, 6514522921, 2188293740, 6517770405, 9524476005, 6514233622, 5073888989, 3205878436, 9529353595, 6128712218, 3202353413, 6516454005, 6128613900, 7637815102, 3206321875, ],
+ 'MN': [9529220880, 9528811856, 6512275502, 8664232969, 5072895636, 6514522921, 2188293740, 6517770405, 9524476005, 6514233622, 5073888989, 3205878436, 9529353595, 6128712218, 3202353413, 6516454005, 6128613900, 7637815102, 3206321875],
 
  'MS': [6019820081, 6016361134, 6622803435, 6014822498, 6628461132, 6014260108, 6016931234],
 
- 'MO': [3146473677, 5734424424, 8164717229, 5733580101, 8887404568, 8164619683, 8164610039, 8164619691, 4178237125, ],
+ 'MO': [3146473677, 5734424424, 8164717229, 5733580101, 8887404568, 8164619683, 8164610039, 8164619691, 4178237125],
 
  'MT': [8886072000],
 
  'NE': [4024385214, 4023719859, 7122521333, 4025561880, 4025561880],
 
- 'NV': [7753249210, 7753551151, 7025981888, 7023878744, 7027965222, 7024339550, ],
+ 'NV': [7753249210, 7753551151, 7025981888, 7023878744, 7027965222, 7024339550],
 
- 'NH': [6036226967, ],
+ 'NH': [6036226967],
 
  'NJ': [9086878566, 9738240555, 6095866902, 8564864444, 6096418855, 8564864446],
 
- 'NM': [5754309502, 5059828932, 5052661900, ],
+ 'NM': [5754309502, 5059828932, 5052661900],
 
  'NY': [2128703400, 2126471680, 5162923040, 5164815138],
 
@@ -248,7 +248,14 @@ $(document).ready(function () {
   $("#submit").click(save);
   // Clear the state to enable the user to add a new state
   $("#change").click(remove);
+  // $("#org").click(addNumbers);
 });
+
+$(document).on('click', 'p', function () {
+  // $(this).attr('title', 'Click to visit ' + this.id);
+  addNumbers(this, this.innerHTML);
+});
+
 
 // Function init()
 // Grab STATE from storage and replace 'test values' with the state
@@ -270,11 +277,11 @@ function init() {
 }
 
 // Function populate_list()
-// Calls addNumbers for each organization and their phone numbers
+// Calls addOrgs for each organization and their phone numbers
 //  for the selected state
 function populate_list(state) {
-  addNumbers('YWCA', YWCA[state]);
-  addNumbers('Alcoholics anonymous', alcoholAnon[state]);
+  addOrgs('YWCA', YWCA[state]);
+  addOrgs('Alcoholics anonymous', alcoholAnon[state]);
 }
 
 // Function save()
@@ -292,24 +299,53 @@ function remove() {
   chrome.storage.sync.remove('STATE', function() {});
 }
 
-
-// Function addNumbers()
+// Function addOrgs()
 // Adds li objects of the organizations and their phone numbers
 //  for the selected state
-function addNumbers(org, numbers) {
+function addOrgs(org, numbers) {
   // Create the object for the organization name
-  let li = document.createElement("p");
+  // there is nothing as of now
+
+  let p = document.createElement("p");
+  // <p></p>
+
   let t = document.createTextNode(org);
-  li.appendChild(t);
-  document.getElementById("numbers").appendChild(li);
+  // a string with the value of org, for ex "ywca"
 
-  // Now, create the objects for the numbers
-  for (let i = 0; numbers[i] !== undefined; i++) {
-    li = document.createElement("li");
-    t = document.createTextNode(numbers[i]);
-    li.appendChild(t);
-    li.id = 'number';
-    document.getElementById("numbers").appendChild(li);
+  p.appendChild(t);
+  // <p>ywca</p>
+
+  p.id = 'org';
+  // <p id='org'>ywca</p>
+
+  document.getElementById("numbers").appendChild(p);
+}
+
+function addNumbers(elem, name) {
+  let state = document.getElementById('stateAbr').innerHTML;
+
+  if (name === 'YWCA') {
+    let numbers = YWCA[state];
+    // Now, create the objects for the numbers
+    for (let i = 0; numbers[i] !== undefined; i++) {
+      li = document.createElement("li");
+      t = document.createTextNode(numbers[i]);
+      li.appendChild(t);
+      li.id = 'number';
+
+      elem.appendChild(li);
+    }
   }
+  if (name === 'Alcoholics anonymous') {
+    let numbers = alcoholAnon[state];
+    // Now, create the objects for the numbers
+    for (let i = 0; numbers[i] !== undefined; i++) {
+      li = document.createElement("li");
+      t = document.createTextNode(numbers[i]);
+      li.appendChild(t);
+      li.id = 'number';
 
+      elem.appendChild(li);
+    }
+  }
 }

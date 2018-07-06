@@ -109,6 +109,16 @@
       color: blanchedAlmond;
       title: "Visit here?";
     }
+
+    #org:hover {
+      cursor: pointer;
+      /* make the list items unselectable/unhighlightable */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
   </style>
 <!-- /////////// CSS ////////// -->
 
@@ -129,7 +139,7 @@
   <div id="container">
     <div id="vertical-menu" class="vertical-menu">
       <ul id="numbers">
-        <!-- Websites added will be found here when inspecting the popup -->
+        <!-- Numbers added will be found here when inspecting the popup -->
       </ul>
 
 
