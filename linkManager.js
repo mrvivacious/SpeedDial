@@ -184,9 +184,16 @@ var plannedParent = {
   'WI': [4149318181, 9204589401, 7154239610, 6082413767, 4146458383, 6082516546, 2625440708, 4145412772, 2626540491, 9207316304, 2627281849, 6087421551, 2623381303, 7158332279, 9204320031, 2626342060, 4145366690, 9202350115, 4149674945, 9206841332],
   'WY': [6165313070, 8002307526]
 };
+
+// This is a lil tougher than previously thought
+// Very easy to scrape numbers with the tool when we have an
+//  organization name. However, some support numbers are given
+//  as stand alone numbers and we have to dig around to find these (exactly
+//  what SpeedDial is aiming to circumvent)
 var suicideHelp = {
 
 };
+
 var drugHelp = {
 
 };
