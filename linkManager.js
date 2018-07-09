@@ -191,7 +191,7 @@ var plannedParent = {
 //  as stand alone numbers and we have to dig around to find these (exactly
 //  what SpeedDial is aiming to circumvent)
 var suicideHelp = {
-
+  
 };
 
 var drugHelp = {
