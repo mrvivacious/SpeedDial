@@ -5,9 +5,7 @@
 
 // TODO::
 // o create arrays of organizations with their phone numbers per state ugh
-
-// Extra credit
-// o When clicking a phone number, open a Google hangouts call with that number
+// o promo pics
 
 // Finished
 // √ Save state submitted when users click "submit" into chrome.storage.sync
@@ -15,6 +13,7 @@
 // + If a state is saved, we populate the list and display popup2.html with the numbers
 // + If no state is saved, we display popup1.html so users can specify a list
 // √ Add a way for users to change the state they are in
+// √ When clicking a phone number, open a Google hangouts call with that number
 
 // alchol anonymous
 // planned parenthood
@@ -214,6 +213,20 @@ var teenDatingAbuseHotline = [18663319474, 18663318453];
 
 var crisisSuicidePreventionLGBTQYouth = [18664887386];
 
+var callURL = 'https://hangouts.google.com/?ht=0&hcb=0&lm1=1531104876192&hs=' +
+  '79&hmv=1&ssc=WyIiLDAsbnVsbCxudWxsLG51bGwsW10sbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLDc5LG51bGwsbnVsbCxudWxsLFsxNTMxMTA0ODc2MTkyXSxudWxsLG51bGwsW1tudWxsLG51bGwsW251bGwsIisxMzA5NjYwMjM0MCJdXV0sbnVsbCxudWxsLHRydWUsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsW10sW10sbnVsbCxudWxsLG51bGwsW10sbnVsbCxudWxsLG51bGwsW10sbnVsbCxudWxsLFtdXQ..' +
+  '&action=chat&pn=%2B';
+
+var voiceURL = 'https://voice.google.com/';
+
+// Open voice.google if this is the user's first time opening the app
+chrome.storage.local.get("notFirstTime", function(returnValue) {
+    if (returnValue.notFirstTime === undefined) {
+      openLink('https://voice.google.com/');
+      chrome.storage.local.set({"notFirstTime": true}, function() {} );
+    }
+});
+
 $(document).ready(function () {
   init();
 
@@ -221,7 +234,6 @@ $(document).ready(function () {
   $("#submit").click(save);
   // Clear the state to enable the user to add a new state
   $("#change").click(remove);
-  // $("#number").click(callNumber);
 });
 
 $(document).on('click', 'p', function () {
@@ -354,9 +366,33 @@ function addNumbers(elem, name, state) {
     }
   }
 
-
 }
 
+// Function callNumber()
+// Dials a Google Hangouts call of the number passed in
+// @param number The number to dial
 function callNumber(number) {
-  // alert(number);
+  chrome.windows.getCurrent(null, function(tab) {
+    // Check number for international code
+    if (number[0] !== '1') {
+      callURL += '1';
+    }
+    callURL += number;
+
+    // Create popup with the number dialed into a Hangouts call
+    chrome.windows.create(
+      {url: callURL, type: 'popup'}
+    );
+  });
+}
+
+// Function openLink()
+// Open url in a new tab
+// @param URL The url to open in the new tab
+function openLink(URL) {
+  chrome.tabs.getSelected(null, function(tab) {
+      chrome.tabs.create(
+        {url: URL}
+      );
+  });
 }
