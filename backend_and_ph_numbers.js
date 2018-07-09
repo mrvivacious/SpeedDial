@@ -190,7 +190,7 @@ var plannedParent = {
 //  as stand alone numbers and we have to dig around to find these (exactly
 //  what SpeedDial is aiming to circumvent)
 var suicideHelp = {
-  
+
 };
 
 var drugHelp = {
@@ -245,8 +245,6 @@ $(document).on('click', 'li', function (event) {
   callNumber(this.innerHTML);
   event.stopPropagation();
 });
-//
-
 
 // Function init()
 // Grab STATE from storage and replace 'test values' with the state
@@ -341,6 +339,7 @@ function addNumbers(elem, name, state) {
       elem.appendChild(li);
     }
   }
+
   if (name === 'Alcoholics anonymous') {
     let numbers = alcoholAnon[state];
     // Now, create the objects for the numbers
@@ -353,6 +352,7 @@ function addNumbers(elem, name, state) {
       elem.appendChild(li);
     }
   }
+
   if (name === 'Planned Parenthood') {
     let numbers = alcoholAnon[state];
     // Now, create the objects for the numbers
@@ -365,7 +365,6 @@ function addNumbers(elem, name, state) {
       elem.appendChild(li);
     }
   }
-
 }
 
 // Function callNumber()
