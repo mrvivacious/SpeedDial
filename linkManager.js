@@ -198,6 +198,22 @@ var drugHelp = {
 
 };
 
+var suicidePreventionLifeline = [18002738255, 18886289454, 18007994889];
+
+var substanceAbuseHelpline = [18006624357];
+
+var domesticViolanceHotline = [18007997233, 18007873224];
+
+var childAbuseHotline = [18004224453];
+
+var sexualAssaultHotline = [18006564673];
+
+var crimeVictimHotline = [18554842846];
+
+var teenDatingAbuseHotline = [18663319474, 18663318453];
+
+var crisisSuicidePreventionLGBTQYouth = [18664887386];
+
 $(document).ready(function () {
   init();
 
