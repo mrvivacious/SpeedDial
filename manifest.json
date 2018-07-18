@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "SpeedDial DEV",
-  "description": "View emergency numbers of your state in the omnibox.",
+  "name": "SpeedDial",
+  "description": "View emergency numbers and support hotlines in the omnibox.",
   "version": "0.0.0.1",
   "author": "Vivek Bhookya, Deepika Gudavalli",
 
