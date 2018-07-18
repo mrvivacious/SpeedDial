@@ -326,6 +326,7 @@ function addNatlOrgs(org) {
   // <p>ywca</p>
 
   p.id = 'org';
+  p.className = org;
   // <p id='org'>ywca</p>
 
   document.getElementById("natlNumbers").appendChild(p);
