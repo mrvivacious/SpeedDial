@@ -85,6 +85,32 @@
     }
 
     /* Style the list items */
+    #number {
+      cursor: pointer;
+      position: relative;
+      padding: 12px 40px 12px 12px;
+      list-style-type: none;
+      background: inherit;
+      font-size: 20px;
+      transition: 0.2s;
+      word-break: break-all;
+      color: #000;
+
+      /* make the list items unselectable/unhighlightable */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Darker background-color on hover */
+    #number:hover {
+      background: lightgreen;
+      /* background: #FF82AB; */
+      /* color: ivory; */
+      title: "Call?";
+    }
+
     #stateNumber {
       cursor: pointer;
       position: relative;
@@ -140,13 +166,14 @@
     #org {
       cursor: pointer;
       position: relative;
-      padding: 12px 40px 12px 12px;
+      /* padding: 12px 40px 12px 12px; */
+      padding: 8px 0px 8px 0px;
       list-style-type: none;
       background: inherit;
-      font-size: 20px;
+      font-size: 16px;
       transition: 0.2s;
       word-break: break-all;
-      color: deeppink;
+      /*color: deeppink;*/
 
       /* make the list items unselectable/unhighlightable */
       -webkit-user-select: none;
@@ -187,24 +214,22 @@
         <br>Stay safe. May you always have peace.
       </p>
 
-      <p style="color:blue;">NATIONAL HOTLINES GO HERE</p>
-
       <ul style="color:blue;" id="natlNumbers">
         <!-- Numbers added will be found here when inspecting the popup -->
       </ul>
-      <ul id="stateNumbers">
+      <ul style="color:DeepPink;" id="stateNumbers">
         <!-- Numbers added will be found here when inspecting the popup -->
       </ul>
 
-      <a href="popup1.html" id="change" style="font-size:14px; margin-top:0px; margin-bottom:0px; border-width:0px;">
+      <a href="popup1.html" id="change" style="font-size:12px; margin-top:0px; margin-bottom:0px; border-width:0px;">
         <em>Your state:</em> <span id="stateAbr">test values</span>. Change state?</a>
 
       <span style="margin-top:0px; margin-bottom:0px; border-width:0px;">
         <a href="mailto:jvnnvt@gmail.com?Subject=SpeedDial" target="_blank"><em>Something wrong? Let me know!<em></a>
       </span>
 
-      <p style="color:lightgreen;"><em>Can't make calls? Please setup your <a href="https://voice.google.com/" target="_blank">Google Voice account (free).</a>
-      </em></p>
+      <span style="color:lightgreen;"><em>Can't make calls? Please setup your <a href="https://voice.google.com/" target="_blank">Google Voice account (free).</a>
+      </em></span>
 
       <span style="color:lightgreen;"><em>Thank you for your support <span style="color:lightgreen; font-size:14px;">&hearts;</span></em>
     </span>

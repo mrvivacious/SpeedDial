@@ -189,13 +189,6 @@ var plannedParent = {
 //  organization name. However, some support numbers are given
 //  as stand alone numbers and we have to dig around to find these (exactly
 //  what SpeedDial is aiming to circumvent)
-var suicideHelp = {
-
-};
-
-var drugHelp = {
-
-};
 
 var suicidePreventionLifeline = [18002738255, 18886289454, 18007994889];
 
@@ -258,6 +251,7 @@ function init() {
       window.open('popup1.html', "_self");
       // window.open('tel:+13096602340');
     }
+    //addHotlines();
 
     document.getElementById('stateAbr').innerHTML = returnedObj.STATE;
     populate_list(returnedObj.STATE);
@@ -269,9 +263,12 @@ function init() {
 // Calls addOrgs for each organization and their phone numbers
 //  for the selected state
 function populate_list(state) {
-  addOrgs('YWCA', YWCA[state]);
-  addOrgs('Alcoholics anonymous', alcoholAnon[state]);
-  addOrgs('Planned Parenthood', plannedParent[state]);
+  addNatlOrgs('Suicide Prevention Lifeline');
+  addNatlOrgs('Substance Abuse Helpline');
+
+  addStateOrgs('YWCA');
+  addStateOrgs('Alcoholics anonymous');
+  addStateOrgs('Planned Parenthood');
 
 }
 
@@ -293,7 +290,7 @@ function remove() {
 // Function addOrgs()
 // Adds li objects of the organizations and their phone numbers
 //  for the selected state
-function addOrgs(org, numbers) {
+function addStateOrgs(org) {
   // Create the object for the organization name
   // there is nothing as of now
 
@@ -309,7 +306,29 @@ function addOrgs(org, numbers) {
   p.id = 'org';
   // <p id='org'>ywca</p>
 
-  document.getElementById("numbers").appendChild(p);
+  document.getElementById("stateNumbers").appendChild(p);
+}
+
+// Function addOrgs()
+// Adds li objects of the organizations and their phone numbers
+//  for the selected state
+function addNatlOrgs(org) {
+  // Create the object for the organization name
+  // there is nothing as of now
+
+  let p = document.createElement("p");
+  // <p></p>
+
+  let t = document.createTextNode(org);
+  // a string with the value of org, for ex "ywca"
+
+  p.appendChild(t);
+  // <p>ywca</p>
+
+  p.id = 'org';
+  // <p id='org'>ywca</p>
+
+  document.getElementById("natlNumbers").appendChild(p);
 }
 
 function addNumbers(elem, name, state) {
@@ -323,6 +342,32 @@ function addNumbers(elem, name, state) {
   else if (elem.childElementCount > 0) {
     while(document.getElementById('number')) {
       document.getElementById('number').remove();
+    }
+  }
+
+  if (name === 'Suicide Prevention Lifeline') {
+    let numbers = suicidePreventionLifeline;
+    // Now, create the objects for the numbers
+    for (let i = 0; numbers[i] !== undefined; i++) {
+      li = document.createElement("li");
+      t = document.createTextNode(numbers[i]);
+      li.appendChild(t);
+      li.id = 'number';
+
+      elem.appendChild(li);
+    }
+  }
+
+  if (name === 'Substance Abuse Helpline') {
+    let numbers = substanceAbuseHelpline;
+    // Now, create the objects for the numbers
+    for (let i = 0; numbers[i] !== undefined; i++) {
+      li = document.createElement("li");
+      t = document.createTextNode(numbers[i]);
+      li.appendChild(t);
+      li.id = 'number';
+
+      elem.appendChild(li);
     }
   }
 
@@ -354,7 +399,7 @@ function addNumbers(elem, name, state) {
   }
 
   if (name === 'Planned Parenthood') {
-    let numbers = alcoholAnon[state];
+    let numbers = plannedParent[state];
     // Now, create the objects for the numbers
     for (let i = 0; numbers[i] !== undefined; i++) {
       li = document.createElement("li");
@@ -365,6 +410,7 @@ function addNumbers(elem, name, state) {
       elem.appendChild(li);
     }
   }
+
 }
 
 // Function callNumber()
