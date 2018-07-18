@@ -194,7 +194,7 @@ var suicidePreventionLifeline = [18002738255, 18886289454, 18007994889];
 
 var substanceAbuseHelpline = [18006624357];
 
-var domesticViolanceHotline = [18007997233, 18007873224];
+var domesticViolenceHotline = [18007997233, 18007873224];
 
 var childAbuseHotline = [18004224453];
 
@@ -263,13 +263,8 @@ function init() {
 // Calls addOrgs for each organization and their phone numbers
 //  for the selected state
 function populate_list(state) {
-  addNatlOrgs('Suicide Prevention Lifeline');
-  addNatlOrgs('Substance Abuse Helpline');
-
-  addStateOrgs('YWCA');
-  addStateOrgs('Alcoholics anonymous');
-  addStateOrgs('Planned Parenthood');
-
+  addNatlOrgs(['Suicide Prevention', 'Substance Abuse', 'Domestic Violence', 'Child Abuse', 'Sexual Assault', 'Crime Victim Support', 'Teen Dating Abuse', 'Youth Suicide Prevention']);
+  addStateOrgs(['YWCA', 'Alcoholics anonymous', 'Planned Parenthood']);
 }
 
 // Function save()
@@ -290,46 +285,43 @@ function remove() {
 // Function addOrgs()
 // Adds li objects of the organizations and their phone numbers
 //  for the selected state
-function addStateOrgs(org) {
-  // Create the object for the organization name
-  // there is nothing as of now
+function addStateOrgs(orgs) {
+  for (let i = 0; orgs[i] !== undefined; i++) {
+    let p = document.createElement("p");
+    // <p></p>
 
-  let p = document.createElement("p");
-  // <p></p>
+    let t = document.createTextNode(orgs[i]);
+    // a string with the value of org, for ex "ywca"
 
-  let t = document.createTextNode(org);
-  // a string with the value of org, for ex "ywca"
+    p.appendChild(t);
+    // <p>ywca</p>
 
-  p.appendChild(t);
-  // <p>ywca</p>
+    p.id = 'org';
+    // <p id='org'>ywca</p>
 
-  p.id = 'org';
-  // <p id='org'>ywca</p>
-
-  document.getElementById("stateNumbers").appendChild(p);
+    document.getElementById("stateNumbers").appendChild(p);
+  }
 }
 
 // Function addOrgs()
 // Adds li objects of the organizations and their phone numbers
 //  for the selected state
-function addNatlOrgs(org) {
-  // Create the object for the organization name
-  // there is nothing as of now
+function addNatlOrgs(orgs) {
+  for (let i = 0; orgs[i] !== undefined; i++) {
+    let p = document.createElement("p");
+    // <p></p>
 
-  let p = document.createElement("p");
-  // <p></p>
+    let t = document.createTextNode(orgs[i]);
+    // a string with the value of org, for ex "ywca"
 
-  let t = document.createTextNode(org);
-  // a string with the value of org, for ex "ywca"
+    p.appendChild(t);
+    // <p>ywca</p>
 
-  p.appendChild(t);
-  // <p>ywca</p>
+    p.id = 'org';
+    // <p id='org'>ywca</p>
 
-  p.id = 'org';
-  p.className = org;
-  // <p id='org'>ywca</p>
-
-  document.getElementById("natlNumbers").appendChild(p);
+    document.getElementById("natlNumbers").appendChild(p);
+  }
 }
 
 function addNumbers(elem, name, state) {
@@ -346,7 +338,7 @@ function addNumbers(elem, name, state) {
     }
   }
 
-  if (name === 'Suicide Prevention Lifeline') {
+  if (name === 'Suicide Prevention') {
     let numbers = suicidePreventionLifeline;
     // Now, create the objects for the numbers
     for (let i = 0; numbers[i] !== undefined; i++) {
@@ -359,7 +351,7 @@ function addNumbers(elem, name, state) {
     }
   }
 
-  if (name === 'Substance Abuse Helpline') {
+  if (name === 'Substance Abuse') {
     let numbers = substanceAbuseHelpline;
     // Now, create the objects for the numbers
     for (let i = 0; numbers[i] !== undefined; i++) {
@@ -372,6 +364,85 @@ function addNumbers(elem, name, state) {
     }
   }
 
+  if (name === 'Domestic Violence') {
+    let numbers = domesticViolenceHotline;
+    // Now, create the objects for the numbers
+    for (let i = 0; numbers[i] !== undefined; i++) {
+      li = document.createElement("li");
+      t = document.createTextNode(numbers[i]);
+      li.appendChild(t);
+      li.id = 'number';
+
+      elem.appendChild(li);
+    }
+  }
+
+  if (name === 'Child Abuse') {
+    let numbers = childAbuseHotline;
+    // Now, create the objects for the numbers
+    for (let i = 0; numbers[i] !== undefined; i++) {
+      li = document.createElement("li");
+      t = document.createTextNode(numbers[i]);
+      li.appendChild(t);
+      li.id = 'number';
+
+      elem.appendChild(li);
+    }
+  }
+
+  if (name === 'Sexual Assault') {
+    let numbers = sexualAssaultHotline;
+    // Now, create the objects for the numbers
+    for (let i = 0; numbers[i] !== undefined; i++) {
+      li = document.createElement("li");
+      t = document.createTextNode(numbers[i]);
+      li.appendChild(t);
+      li.id = 'number';
+
+      elem.appendChild(li);
+    }
+  }
+
+  if (name === 'Crime Victim Support') {
+    let numbers = crimeVictimHotline;
+    // Now, create the objects for the numbers
+    for (let i = 0; numbers[i] !== undefined; i++) {
+      li = document.createElement("li");
+      t = document.createTextNode(numbers[i]);
+      li.appendChild(t);
+      li.id = 'number';
+
+      elem.appendChild(li);
+    }
+  }
+
+  if (name === 'Teen Dating Abuse') {
+    let numbers = teenDatingAbuseHotline;
+    // Now, create the objects for the numbers
+    for (let i = 0; numbers[i] !== undefined; i++) {
+      li = document.createElement("li");
+      t = document.createTextNode(numbers[i]);
+      li.appendChild(t);
+      li.id = 'number';
+
+      elem.appendChild(li);
+    }
+  }
+
+  if (name === 'Youth Suicide Prevention') {
+    let numbers = crisisSuicidePreventionLGBTQYouth;
+    // Now, create the objects for the numbers
+    for (let i = 0; numbers[i] !== undefined; i++) {
+      li = document.createElement("li");
+      t = document.createTextNode(numbers[i]);
+      li.appendChild(t);
+      li.id = 'number';
+
+      elem.appendChild(li);
+    }
+  }
+
+  // LOCAL ORGS
   // Populating the list
   if (name === 'YWCA') {
     let numbers = YWCA[state];
