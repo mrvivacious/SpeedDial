@@ -264,7 +264,7 @@ function init() {
 //  for the selected state
 function populate_list(state) {
   addNatlOrgs(['Suicide Prevention', 'Substance Abuse', 'Domestic Violence', 'Child Abuse', 'Sexual Assault', 'Crime Victim Support', 'Teen Dating Abuse', 'Youth Suicide Prevention']);
-  addStateOrgs(['YWCA', 'Alcoholics anonymous', 'Planned Parenthood']);
+  addStateOrgs(['YWCA', 'Alcoholics Anonymous', 'Planned Parenthood']);
 }
 
 // Function save()
