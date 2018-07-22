@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
 
-  "name": "SpeedDial",
+  "name": "SpeedDial DEV",
   "description": "View emergency numbers and support hotlines in the omnibox.",
-  "version": "0.0.0.1",
-  "author": "Vivek Bhookya, Deepika Gudavalli",
+  "version": "0.0.0.2",
+  "author": "Vivek Bhookya and Deepika Gudavalli",
 
   "browser_action": {
     "default_icon": "icons/speedDial_icon.png",

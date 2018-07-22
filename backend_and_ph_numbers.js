@@ -246,8 +246,9 @@ function init() {
     // If no STATE is currently saved, open the first popup
     // Second conditional is in place to avoid a permanent loop of refreshing the popup -- this rendered
     //  selecting a state very difficult
-    if (!returnedObj.STATE &&
-      window.location.href === 'chrome-extension://cjbjlcdbnfckcbodkefdlihlbahaokig/popup2.html') {
+    let id = chrome.runtime.id;
+    if ((returnedObj.STATE === undefined) &&
+      window.location.href === 'chrome-extension://' + id + '/popup2.html') {
       window.open('popup1.html', "_self");
       // window.open('tel:+13096602340');
     }
@@ -457,7 +458,7 @@ function addNumbers(elem, name, state) {
     }
   }
 
-  if (name === 'Alcoholics anonymous') {
+  if (name === 'Alcoholics Anonymous') {
     let numbers = alcoholAnon[state];
     // Now, create the objects for the numbers
     for (let i = 0; numbers[i] !== undefined; i++) {
