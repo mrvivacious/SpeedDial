@@ -1,7 +1,7 @@
 
  ![Promotional banner for SpeedDial](/promo/speedDial_marquee.png)
   
- # SpeedDial 
+ # [SpeedDial](https://chrome.google.com/webstore/detail/speeddial/aofiljppiempffphbeadcofapjcekeim) 
 Chrome extension that provides one's state's emergency numbers from the omnibox
 
 <br>
